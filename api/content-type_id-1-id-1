@@ -1,0 +1,54 @@
+{
+    "name" : "This is test record",
+    "actor_id" : {
+        "id" : 3,
+        "name" : "Arnold Schwarzenegger"
+    },
+    "bodytext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada gravida elementum. Vivamus at nunc massa. Aenean vestibulum nibh in feugiat rutrum",
+    "measurement_xr" : [
+        {
+            "id" : 31,
+            "fields" : {
+                "name" : "20 x 30",
+                "width" : "20",
+                "height" : "30",
+                "note": "Suspendisse malesuada gravida elementum. Vivamus at nunc massa"
+            }
+        },
+        {
+            "id" : 37,
+            "fields" : {
+                "name" : "30 x 40",
+                "width" : "30",
+                "height" : "40",
+                "note": "Massa malesuada gravida elementum. Vivamus at nunc massa"
+            }
+        }
+    ],
+    "location_xr" : [
+        {
+            "id" : 31,
+            "target" : {
+                "id" : 3,
+                "name" : "Room 3"
+            },
+            "fields" : {
+                "movement_date" : "2018-09-13",
+                "note": "Vivamus malesuada gravida elementum. Vivamus at nunc massa"
+            }
+        },
+        {
+            "id" : 37,
+            "target" : {
+                "id" : 6,
+                "name" : "Room 6"
+            },
+            "fields" : {
+                "movement_date" : "2019-09-13",
+                "note": "Massa malesuada gravida elementum. Vivamus at nunc massa"
+            }
+        }
+    ]
+}
+
+

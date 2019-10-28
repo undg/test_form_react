@@ -1,0 +1,31 @@
+[
+    {
+        "id" : 1,
+        "name" : "Jason Statham"
+    },
+    {
+        "id" : 2,
+        "name" : "John Travolta"
+    },
+    {
+        "id" : 3,
+        "name" : "Arnold Schwarzenegger"
+    },
+    {
+        "id" : 4,
+        "name" : "Sylvester Stallone"
+    },
+    {
+        "id" : 5,
+        "name" : "Ronnie Coleman"
+    },
+    {
+        "id" : 6,
+        "name" : "Mel Gibson"
+    },
+    {
+        "id" : 7,
+        "name" : "Chuck Norris"
+    }
+]
+

@@ -1,0 +1,130 @@
+{
+    "id" : 1,
+    "name" : "Objects",
+    "table" : "object",
+    "type" : "content",
+
+    "fields" : [
+        {
+            "name" : "Label",
+            "field" : "name",
+            "type" : "text",
+            "validation" : ["required"],
+            "helpText" : "Enter your label"
+        },
+        {
+            "name" : "Actor",
+            "field" : "actor_id",
+            "type" : "select",
+            "validation" : ["required"],
+            "helpText" : "",
+            "target" : {
+                "id" : 2,
+                "name" : "People & organisations",
+                "table" : "actor",
+                "type" : "content"
+            }
+        },
+        {
+            "name" : "Bodytext",
+            "field" : "bodytext",
+            "type" : "textarea",
+            "validation" : ["required"],
+            "helpText" : "This is my main field for data"
+        },
+        {
+            "name" : "Measurements",
+            "field" : "measurement_xr",
+            "type" : "oneToMany",
+            "validation" : null,
+            "helpText" : "",
+            "relationship" : {
+                "id" : 101,
+                "name" : "Work Measurements",
+                "table": "work_measurement_xrefs",
+                "type" : "relationship",
+                "relationshipName" : "work_measurement"
+            },
+            "source" : {
+                "id" : 1,
+                "name" : "Objects",
+                "table" : "object",
+                "type" : "content"
+            },
+            "fields" : [
+                {
+                    "name" : "Label",
+                    "field" : "name",
+                    "type" : "calculated",
+                    "validation" : null,
+                    "helpText" : ""
+                },
+                {
+                    "name" : "Width",
+                    "field" : "width",
+                    "type" : "text",
+                    "validation" : ["required"],
+                    "helpText" : ""
+                },
+                {
+                    "name" : "Height",
+                    "field" : "height",
+                    "type" : "text",
+                    "validation" : ["required"],
+                    "helpText" : ""
+                },
+                {
+                    "name" : "Notes",
+                    "field" : "note",
+                    "type" : "textarea",
+                    "validation" : null,
+                    "helpText" : ""
+                }
+            ]
+        },
+        {
+            "name" : "Location",
+            "field" : "location_xr",
+            "type" : "ManyToMany",
+            "validation" : null,
+            "helpText" : "",
+            "relationship" : {
+                "id" : 101,
+                "name" : "Work location",
+                "table": "work_location_xrefs",
+                "type" : "relationship",
+                "relationshipName" : "work_location"
+            },
+            "source" : {
+                "id" : 1,
+                "name" : "Objects",
+                "table" : "object",
+                "type" : "content"
+            },
+            "target" : {
+                "id" : 3,
+                "name" : "Locations",
+                "table" : "location",
+                "type" : "content"
+            },
+            "fields" : [
+                {
+                    "name" : "Movement date",
+                    "field" : "movement_date",
+                    "type" : "date",
+                    "validation" : ["required"],
+                    "helpText" : ""
+                },
+                {
+                    "name" : "Notes",
+                    "field" : "note",
+                    "type" : "textarea",
+                    "validation" : null,
+                    "helpText" : ""
+                }
+            ]
+        }
+    ]
+}
+
+
