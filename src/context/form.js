@@ -246,12 +246,15 @@ export const FormContext = {
         },
     },
 
-    // output from adapter
+    // OUTPUT FROM ADAPTER
+    // adapter should call multiple API's and combine data in one object.
+    // Keys should be same as in origin api's.
+    // Partial structure should be similar to origin api's.
     display: [
         {
             name: "Label",
             field: "name",
-            value: "",
+            value: "This is test record",
             type: "text",
             required: "",
             helpText : "",
@@ -259,25 +262,45 @@ export const FormContext = {
         {
             name: "Actor",
             field: "actor_id",
-            value: "",
+            value: 3,
             type: "select",
             required: "",
             helpText : "",
             options: [
                 {
-                    label: "Chuck Norris",
-                    value: "chuck_norris",
+                    id : 1,
+                    name : "Jason Statham"
                 },
                 {
-                    label: "Peppa pig",
-                    value: "peppa_pig",
+                    id : 2,
+                    name : "John Travolta"
                 },
+                {
+                    id : 3,
+                    name : "Arnold Schwarzenegger"
+                },
+                {
+                    id : 4,
+                    name : "Sylvester Stallone"
+                },
+                {
+                    id : 5,
+                    name : "Ronnie Coleman"
+                },
+                {
+                    id : 6,
+                    name : "Mel Gibson"
+                },
+                {
+                    id : 7,
+                    name : "Chuck Norris"
+                }
             ]
         },
         {
             name: "Body text",
             field : "bodytext",
-            value: "",
+            value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nibh in feugiat",
             type: "textarea",
             required: "",
             helpText : "",
@@ -305,6 +328,7 @@ export const FormContext = {
             type : "text",
             validation : null,
             helpText : "",
+            value: "20 x 30",
         },
         {
             name : "Width",
@@ -312,6 +336,7 @@ export const FormContext = {
             type : "text",
             validation : "required",
             helpText : "",
+            value: "20",
         },
         {
             name : "Height",
@@ -319,6 +344,7 @@ export const FormContext = {
             type : "text",
             validation : "required",
             helpText : "",
+            value: "30",
         },
         {
             name : "Notes",
@@ -326,7 +352,40 @@ export const FormContext = {
             type : "textarea",
             validation : null,
             helpText : "",
-        }
+            value: "Suspendisse malesuada gravida elementum. Vivamus at nunc massa",
+        },
+        {
+            name : "Label",
+            field : "name",
+            type : "text",
+            validation : null,
+            helpText : "",
+            value: "30 x 40",
+        },
+        {
+            name : "Width",
+            field : "width",
+            type : "text",
+            validation : "required",
+            helpText : "",
+            value: "30",
+        },
+        {
+            name : "Height",
+            field : "height",
+            type : "text",
+            validation : "required",
+            helpText : "",
+            value: "40",
+        },
+        {
+            name : "Notes",
+            field : "note",
+            type : "textarea",
+            validation : null,
+            helpText : "",
+            value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
+        },
     ],
 
     display3: [
@@ -335,14 +394,32 @@ export const FormContext = {
             field : "movement_date",
             type : "date",
             validation : "required",
-            helpText : ""
+            helpText : "",
+            value: "2018-09-13",
         },
         {
             name : "Notes",
             field : "note",
             type : "textarea",
             validation : null,
-            helpText : ""
-        }
+            helpText : "",
+            value: "Vivamus malesuada gravida elementum. Vivamus at nunc massa",
+        },
+        {
+            name : "Movement date",
+            field : "movement_date",
+            type : "date",
+            validation : "required",
+            helpText : "",
+            value: "2018-09-13",
+        },
+        {
+            name : "Notes",
+            field : "note",
+            type : "textarea",
+            validation : null,
+            helpText : "",
+            value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
+        },
     ]
 }

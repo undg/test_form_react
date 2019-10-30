@@ -64,8 +64,8 @@ function Form(props) {
                             margin="normal"
                         >
                             {el.options.map(option => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
+                                <MenuItem key={option.id} value={option.id}>
+                                    {option.name}
                                 </MenuItem>
                             ))}
                         </TextField>
