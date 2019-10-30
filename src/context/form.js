@@ -14,7 +14,7 @@ export const FormContext = {
                     "field" : "name",
                     "type" : "text",
                     "validation" : ["required"],
-                    "helpText" : "Enter your label"
+                    "helpText" : "Enter your label",
                 },
                 {
                     "name" : "Actor",
@@ -254,6 +254,7 @@ export const FormContext = {
             value: "",
             type: "text",
             required: "",
+            helpText : "",
         },
         {
             name: "Actor",
@@ -261,6 +262,7 @@ export const FormContext = {
             value: "",
             type: "select",
             required: "",
+            helpText : "",
             options: [
                 {
                     label: "Chuck Norris",
@@ -278,18 +280,69 @@ export const FormContext = {
             value: "",
             type: "textarea",
             required: "",
+            helpText : "",
         },
         {
             name: "Measure",
             field : "measurement_xr",
             type: "button",
             action: ()=>{},
+            helpText : "",
         },
         {
             name: "Location",
             field : "location_xr",
             type: "button",
             action: ()=>{},
+            helpText : "",
         },
     ],
+
+    display2: [
+        {
+            name : "Label",
+            field : "name",
+            type : "text",
+            validation : null,
+            helpText : "",
+        },
+        {
+            name : "Width",
+            field : "width",
+            type : "text",
+            validation : "required",
+            helpText : "",
+        },
+        {
+            name : "Height",
+            field : "height",
+            type : "text",
+            validation : "required",
+            helpText : "",
+        },
+        {
+            name : "Notes",
+            field : "note",
+            type : "textarea",
+            validation : null,
+            helpText : "",
+        }
+    ],
+
+    display3: [
+        {
+            name : "Movement date",
+            field : "movement_date",
+            type : "date",
+            validation : "required",
+            helpText : ""
+        },
+        {
+            name : "Notes",
+            field : "note",
+            type : "textarea",
+            validation : null,
+            helpText : ""
+        }
+    ]
 }

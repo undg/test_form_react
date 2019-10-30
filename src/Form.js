@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import {
     MenuItem,
     TextField,
@@ -7,37 +6,13 @@ import {
 } from '@material-ui/core/';
 
 import {FormContext} from './context/form.js'
+import {useStyles} from './style.js'
 
-
-export default function Form() {
-    const useStyles = makeStyles(theme => ({
-        container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-        },
-        textField: {
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
-            width: 200,
-        },
-        textAreaField: {
-            marginLeft: theme.spacing(1),
-            marginRight: theme.spacing(1),
-        },
-        menu: {
-            width: 200,
-        },
-        button: {
-            margin: theme.spacing(1),
-            height: 40,
-        },
-    }));
-
+function Form(props) {
     const classes = useStyles();
 
     const [display, setDisplay] = React.useState([
-        ...FormContext.display,
+        ...props.display,
     ]);
 
     const handleChange = idx => event => {
@@ -48,7 +23,6 @@ export default function Form() {
 
     return (
         <form className={classes.container} noValidate autoComplete="off">
-
             { display.map((el, idx) =>
                 [
                     (
@@ -96,6 +70,19 @@ export default function Form() {
                             ))}
                         </TextField>
                     ),(
+                        el.type === "date" &&
+                        <TextField
+                            key={el.field}
+                            label="el.name"
+                            className={classes.textField}
+                            type="date"
+                            value={el.value}
+                            onChange={handleChange(idx)}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                    ),(
                         el.type === "button" &&
                         <Button
                             key={el.field}
@@ -116,4 +103,18 @@ export default function Form() {
             </Button>
         </form>
     );
+}
+
+const MainForm   = () => <Form display={FormContext.display} />
+const OneToMany  = () => <Form display={FormContext.display2} />
+const ManyToMany = () => <Form display={FormContext.display3} />
+
+export default function init() {
+    return (
+        <React.Fragment>
+            <MainForm  key="main" />
+            <OneToMany key="modal1" />
+            <ManyToMany key="modal2" />
+        </React.Fragment>
+    )
 }
