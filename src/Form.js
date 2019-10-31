@@ -3,14 +3,15 @@ import {
     MenuItem,
     TextField,
     Button,
+    Dialog,
 } from '@material-ui/core/';
 
-import {FormContext} from './context/form.js'
 import {useStyles} from './style.js'
 
-function Form(props) {
+export default function Form(props) {
     const classes = useStyles();
 
+    // handling form data
     const [display, setDisplay] = React.useState([
         ...props.display,
     ]);
@@ -20,6 +21,23 @@ function Form(props) {
         value[idx].value = event.target.value
         setDisplay(value);
     };
+
+
+    // handling modals
+    const [open, setOpen] = React.useState(Array(display.length).fill(false));
+
+    const handleClickOpen = (arr, idx) => {
+        const open = [ ...arr ]
+        open[idx] = true
+        setOpen(open);
+    };
+
+    const handleClose = (arr, idx) => {
+        const open = [ ...arr ]
+        open[idx] = false
+        setOpen(open);
+    };
+
 
     return (
         <form className={classes.container} noValidate autoComplete="off">
@@ -84,37 +102,62 @@ function Form(props) {
                         />
                     ),(
                         el.type === "button" &&
-                        <Button
-                            key={el.field}
-                            variant="contained"
-                            className={classes.button}
-                        >
-                            {el.name}
-                        </Button>
+                        [(
+                            <Button
+                                key={el.field}
+                                variant="contained"
+                                className={classes.button}
+                                onClick={() => handleClickOpen(open, idx)}
+                            >
+                                {el.name}
+                            </Button>
+                        ),(
+                            <SimpleDialog
+                                key={el.field + "simapleDialog"}
+                                idx={idx}
+                                open={open[idx]}
+                                onClose={() => handleClose(open, idx)}
+                                display={el.display}
+                            />
+                        )]
                     )
                 ]
             )}
+
+            <Button
+                variant="contained"
+                className={classes.button}
+            > CANCEL </Button>
+
             <Button
                 variant="contained"
                 color="primary"
                 className={classes.button}
-            >
-                SEND
-            </Button>
+            > APPROVE </Button>
+
+            <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+            > SAVE & APPROVE </Button>
         </form>
     );
 }
 
-const MainForm   = () => <Form display={FormContext.display} />
-const OneToMany  = () => <Form display={FormContext.display2} />
-const ManyToMany = () => <Form display={FormContext.display3} />
 
-export default function init() {
+
+
+function SimpleDialog(props) {
+    const { onClose, open } = props;
+
     return (
-        <React.Fragment>
-            <MainForm  key="main" />
-            <OneToMany key="modal1" />
-            <ManyToMany key="modal2" />
-        </React.Fragment>
-    )
+        <Dialog
+            onClose={onClose}
+            open={open}
+        >
+            <Form display={props.display} />
+        </Dialog>
+    );
 }
+
+

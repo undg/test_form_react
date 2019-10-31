@@ -1,14 +1,10 @@
 import React from 'react'
 
 import Form from './Form'
+import {FormContext} from './context/form.js'
 
 
-export default class App extends React.Component {
-
-    render() {
-        return (
-            <Form />
-        );
-    }
+export default function App() {
+    return <Form display={FormContext.display} />
 }
 

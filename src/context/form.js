@@ -1,6 +1,109 @@
 // Make sure the shape of the default value passed to
 // createContext matches the shape that the consumers expect!
 
+
+const display_measurement_xr = [
+    {
+        name : "Label",
+        field : "name",
+        type : "text",
+        validation : null,
+        helpText : "",
+        value: "20 x 30",
+    },
+    {
+        name : "Width",
+        field : "width",
+        type : "text",
+        validation : "required",
+        helpText : "",
+        value: "20",
+    },
+    {
+        name : "Height",
+        field : "height",
+        type : "text",
+        validation : "required",
+        helpText : "",
+        value: "30",
+    },
+    {
+        name : "Notes",
+        field : "note",
+        type : "textarea",
+        validation : null,
+        helpText : "",
+        value: "Suspendisse malesuada gravida elementum. Vivamus at nunc massa",
+    },
+    {
+        name : "Label",
+        field : "name",
+        type : "text",
+        validation : null,
+        helpText : "",
+        value: "30 x 40",
+    },
+    {
+        name : "Width",
+        field : "width",
+        type : "text",
+        validation : "required",
+        helpText : "",
+        value: "30",
+    },
+    {
+        name : "Height",
+        field : "height",
+        type : "text",
+        validation : "required",
+        helpText : "",
+        value: "40",
+    },
+    {
+        name : "Notes",
+        field : "note",
+        type : "textarea",
+        validation : null,
+        helpText : "",
+        value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
+    },
+]
+
+const display_location_xr = [
+    {
+        name : "Movement date",
+        field : "movement_date",
+        type : "date",
+        validation : "required",
+        helpText : "",
+        value: "2018-09-13",
+    },
+    {
+        name : "Notes",
+        field : "note",
+        type : "textarea",
+        validation : null,
+        helpText : "",
+        value: "Vivamus malesuada gravida elementum. Vivamus at nunc massa",
+    },
+    {
+        name : "Movement date",
+        field : "movement_date",
+        type : "date",
+        validation : "required",
+        helpText : "",
+        value: "2018-09-13",
+    },
+    {
+        name : "Notes",
+        field : "note",
+        type : "textarea",
+        validation : null,
+        helpText : "",
+        value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
+    },
+]
+
 export const FormContext = {
     api: {
         form: {
@@ -246,8 +349,8 @@ export const FormContext = {
         },
     },
 
-    // OUTPUT FROM ADAPTER
-    // adapter should call multiple API's and combine data in one object.
+    // OUTPUT FROM ADAPTER'S
+    // adapter should call multiple API's and combine data into one object.
     // Keys should be same as in origin api's.
     // Partial structure should be similar to origin api's.
     display: [
@@ -309,117 +412,17 @@ export const FormContext = {
             name: "Measure",
             field : "measurement_xr",
             type: "button",
-            action: ()=>{},
             helpText : "",
+            display: [ ...display_measurement_xr ],
         },
         {
             name: "Location",
             field : "location_xr",
             type: "button",
-            action: ()=>{},
             helpText : "",
+            display: [ ...display_location_xr ],
         },
     ],
 
-    display2: [
-        {
-            name : "Label",
-            field : "name",
-            type : "text",
-            validation : null,
-            helpText : "",
-            value: "20 x 30",
-        },
-        {
-            name : "Width",
-            field : "width",
-            type : "text",
-            validation : "required",
-            helpText : "",
-            value: "20",
-        },
-        {
-            name : "Height",
-            field : "height",
-            type : "text",
-            validation : "required",
-            helpText : "",
-            value: "30",
-        },
-        {
-            name : "Notes",
-            field : "note",
-            type : "textarea",
-            validation : null,
-            helpText : "",
-            value: "Suspendisse malesuada gravida elementum. Vivamus at nunc massa",
-        },
-        {
-            name : "Label",
-            field : "name",
-            type : "text",
-            validation : null,
-            helpText : "",
-            value: "30 x 40",
-        },
-        {
-            name : "Width",
-            field : "width",
-            type : "text",
-            validation : "required",
-            helpText : "",
-            value: "30",
-        },
-        {
-            name : "Height",
-            field : "height",
-            type : "text",
-            validation : "required",
-            helpText : "",
-            value: "40",
-        },
-        {
-            name : "Notes",
-            field : "note",
-            type : "textarea",
-            validation : null,
-            helpText : "",
-            value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
-        },
-    ],
-
-    display3: [
-        {
-            name : "Movement date",
-            field : "movement_date",
-            type : "date",
-            validation : "required",
-            helpText : "",
-            value: "2018-09-13",
-        },
-        {
-            name : "Notes",
-            field : "note",
-            type : "textarea",
-            validation : null,
-            helpText : "",
-            value: "Vivamus malesuada gravida elementum. Vivamus at nunc massa",
-        },
-        {
-            name : "Movement date",
-            field : "movement_date",
-            type : "date",
-            validation : "required",
-            helpText : "",
-            value: "2018-09-13",
-        },
-        {
-            name : "Notes",
-            field : "note",
-            type : "textarea",
-            validation : null,
-            helpText : "",
-            value: "Massa malesuada gravida elementum. Vivamus at nunc massa",
-        },
-    ]
 }
+
