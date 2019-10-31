@@ -1,42 +1,41 @@
-import React from 'react';
+import React from 'react'
 import {
     MenuItem,
     TextField,
     Button,
     Dialog,
-} from '@material-ui/core/';
+} from '@material-ui/core/'
 
 import {useStyles} from './style.js'
 
 export default function Form(props) {
-    const classes = useStyles();
+    const classes = useStyles()
 
     // handling form data
     const [display, setDisplay] = React.useState([
         ...props.display,
-    ]);
-
+    ])
     const handleChange = idx => event => {
         const value = [ ...display ]
         value[idx].value = event.target.value
-        setDisplay(value);
-    };
+        setDisplay(value)
+    }
 
 
     // handling modals
-    const [open, setOpen] = React.useState(Array(display.length).fill(false));
-
+    const [open, setOpen] = React.useState(
+        Array(display.length).fill(false)
+    )
     const handleClickOpen = (arr, idx) => {
         const open = [ ...arr ]
         open[idx] = true
-        setOpen(open);
-    };
-
+        setOpen(open)
+    }
     const handleClose = (arr, idx) => {
         const open = [ ...arr ]
         open[idx] = false
-        setOpen(open);
-    };
+        setOpen(open)
+    }
 
 
     return (
@@ -141,14 +140,14 @@ export default function Form(props) {
                 className={classes.button}
             > SAVE & APPROVE </Button>
         </form>
-    );
+    )
 }
 
 
 
 
 function SimpleDialog(props) {
-    const { onClose, open } = props;
+    const { onClose, open } = props
 
     return (
         <Dialog
@@ -157,7 +156,7 @@ function SimpleDialog(props) {
         >
             <Form display={props.display} />
         </Dialog>
-    );
+    )
 }
 
 
